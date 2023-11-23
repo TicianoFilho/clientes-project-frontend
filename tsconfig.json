@@ -4,6 +4,7 @@
   "compilerOptions": {
     "noImplicitThis": false,
     "types": ["jquery"],
+    "strictPropertyInitialization": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
