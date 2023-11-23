@@ -18,4 +18,8 @@ export class ClientesFormComponent {
     console.log(this.cliente);
   }
 
+  onSubmit() {
+    console.log(this.cliente);
+  }
+
 }
