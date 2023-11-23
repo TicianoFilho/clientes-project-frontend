@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import jQuery from 'jQuery'
+import * as jQuery from 'jquery'
 
 
 @Component({
@@ -13,7 +13,7 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     (function($) {
       "use strict";
-
+''
       // Add active state to sidebar nav links
       var path = window.location.href;
       $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
