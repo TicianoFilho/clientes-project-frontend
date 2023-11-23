@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
-import { Cliente } from '../Clientes'
+import { Component, OnInit } from '@angular/core';
+import { Cliente } from '../Clientes';
+import { ClientesService } from '../../clientes.service';
 
 @Component({
   selector: 'app-clientes-form',
   templateUrl: './clientes-form.component.html',
   styleUrls: ['./clientes-form.component.css']
 })
-export class ClientesFormComponent {
+export class ClientesFormComponent implements OnInit {
 
   cliente: Cliente;
 
-  constructor() {
-    this.cliente = new Cliente();
+  constructor(private clienteService: ClientesService) {
+    this.cliente = clienteService.getCliente();
+  }
+
+  ngOnInit(): void {
+    
   }
 
   clicar() {
