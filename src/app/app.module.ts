@@ -12,7 +12,7 @@ import { TemplateModule } from './template/template.module'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TemplateModule
+    TemplateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
