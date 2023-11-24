@@ -24,11 +24,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                  <tr *ngFor="let cliente of clientes">
+                    <th>{{ cliente.id }}</th>
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.cpf }}</td>
+                    <td>{{ cliente.dataCadastro }}</td>
                   </tr>
                 </tbody>
               </table>

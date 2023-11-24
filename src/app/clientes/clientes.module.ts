@@ -19,7 +19,8 @@ import { ClientesListComponent } from './clientes-list/clientes-list.component'
     ClientesRoutingModule,
     FormsModule
   ], exports: [
-    ClientesFormComponent
+    ClientesFormComponent,
+    ClientesListComponent
   ]
 })
 export class ClientesModule { }
