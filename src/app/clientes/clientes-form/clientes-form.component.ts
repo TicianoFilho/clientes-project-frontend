@@ -30,6 +30,7 @@ export class ClientesFormComponent implements OnInit {
     .subscribe( response => { 
       this.saveSuccess = true;
       this.erros = null;
+      this.cliente = response;
     }, errorResponse => {
       this.erros = errorResponse.error.erros;
       this.saveSuccess = false;
