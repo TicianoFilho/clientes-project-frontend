@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Cliente } from '../Clientes';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-clientes-list',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class ClientesListComponent {
 
+  clientes: Cliente[];
+
+  constructor(private Client)
+
+  getClientes: Cliente[] {
+    return null; // TODO implement from here.
+  }
 }
