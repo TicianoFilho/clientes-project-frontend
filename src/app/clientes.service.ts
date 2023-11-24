@@ -21,12 +21,4 @@ export class ClientesService {
     return this.http.get<Cliente[]>('http://127.0.0.1:8080/sistema-vendas/api/v1/clientes');
   }
 
-  // getCliente(): Cliente[] {
-  //   let cliente: Cliente = new Cliente();
-  //   cliente.nome = 'Ticiano filho';
-  //   cliente.cpf = '0668.256.354-41';
-  //   cliente.id = 1;
-  //   cliente.dataCadastro = '24/11/2023';
-  //   return [cliente];
-  // }
 }
