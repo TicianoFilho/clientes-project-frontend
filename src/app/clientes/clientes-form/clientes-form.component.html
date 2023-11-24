@@ -9,7 +9,10 @@
             <div class="col-md-12">
                 <div class="alert alert-success" role="alert" *ngIf="saveSuccess == true">
                     Cliente salvo com sucesso!
-                  </div>
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let err of erros">
+                    {{ err }}
+                </div>
             </div>
         </div>
 
