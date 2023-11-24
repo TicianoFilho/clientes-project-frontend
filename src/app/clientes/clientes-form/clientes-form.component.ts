@@ -11,7 +11,7 @@ export class ClientesFormComponent implements OnInit {
 
   cliente: Cliente;
   saveSuccess: boolean = false;
-  erros: string[];
+  erros: string[] | null;
 
   constructor(private clienteService: ClientesService) {
     this.cliente = new Cliente();
@@ -27,9 +27,12 @@ export class ClientesFormComponent implements OnInit {
 
   onSubmit() {
    this.clienteService.salvar(this.cliente)
-    .subscribe( response => { this.saveSuccess = true
+    .subscribe( response => { 
+      this.saveSuccess = true;
+      this.erros = null;
     }, errorResponse => {
       this.erros = errorResponse.error.erros;
+      this.saveSuccess = false;
     });
   }
 
