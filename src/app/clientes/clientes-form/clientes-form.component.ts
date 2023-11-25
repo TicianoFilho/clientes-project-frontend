@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../Clientes';
 import { ClientesService } from '../../clientes.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-clientes-form',
@@ -13,14 +13,20 @@ export class ClientesFormComponent implements OnInit {
   cliente: Cliente;
   saveSuccess: boolean = false;
   erros: string[] | null;
+  id: number;
 
-  constructor(private clienteService: ClientesService, private router: Router) {
+  constructor(
+      private clienteService: ClientesService, 
+      private router: Router,
+      private activatedRoute: ActivatedRoute) {
+
     this.cliente = new Cliente();
   }
 
   ngOnInit(): void {
-    
+    this.getClienteById();
   }
+    
 
   clicar() {
     console.log(this.cliente);
@@ -42,4 +48,16 @@ export class ClientesFormComponent implements OnInit {
     this.router.navigate(['/clientes-list']);
   }
 
+  getClienteById() {
+   
+    this.activatedRoute.params.subscribe(params => {
+      this.id = params['id'];
+      
+      if (this.id) {
+        this.clienteService.getById(this.id)
+          .subscribe(clienteResponse => this.cliente = clienteResponse, 
+            errorReponse => this.cliente = new Cliente());
+      }
+    }); 
+  }
 }
