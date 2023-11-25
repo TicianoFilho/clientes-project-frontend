@@ -33,7 +33,7 @@
               <button class="btn btn-light" routerLink="/clientes-form/{{ cliente.id }}">
                 <i class="fa-solid fa-pencil"></i>
               </button>
-              <button class="btn btn-light" data-toggle="modal" data-target="#modalDelete">
+              <button class="btn btn-light" data-toggle="modal" data-target="#modalDelete" (click)="getSelectedCliente(cliente)">
                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </td>
@@ -48,13 +48,13 @@
       <div class="modal-content">
         <h4>Confirmação</h4>
         <div class="modal-header">
-          <h4>Confirmação</h4>
         </div>
-        <div class="modal-body">
-          <input type="text" name="" id="">
+        <div class="modal-body" *ngIf="selectedCliente">
+          Deseja excluir Sr(a). {{ selectedCliente.nome }}?
         </div>
         <div class="modal-footer">
-          botão aqui
+          <button class="btn btn-success">Confirma</button>
+          <button class="btn btn-light" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ClientesListComponent implements OnInit {
 
   clientes: Cliente[] = [];
+  selectedCliente: Cliente;
 
   constructor(private clienteService: ClientesService, private router: Router) {
   }
@@ -39,4 +40,7 @@ export class ClientesListComponent implements OnInit {
     this.clienteService.delete(id);
   }
 
+  getSelectedCliente(cliente: Cliente) {
+    this.selectedCliente = cliente;
+  }
 }
