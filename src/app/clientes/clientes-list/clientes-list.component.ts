@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../Clientes';
 import { Observable } from 'rxjs';
 import { ClientesService } from 'src/app/clientes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clientes-list',
@@ -12,7 +13,7 @@ export class ClientesListComponent implements OnInit {
 
   clientes: Cliente[] = [];
 
-  constructor(private clienteService: ClientesService) {
+  constructor(private clienteService: ClientesService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -28,6 +29,10 @@ export class ClientesListComponent implements OnInit {
         console.error('Ocorreu um erro:', error);
       }
     );
+  }
+
+  novoCadastro() {
+    this.router.navigate(['/clientes-form']);
   }
 
 }
