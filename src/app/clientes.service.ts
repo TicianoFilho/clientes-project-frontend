@@ -17,6 +17,11 @@ export class ClientesService {
     return this.http.post<Cliente>("http://127.0.0.1:8080/sistema-vendas/api/v1/clientes",cliente);
   }
 
+  editar(cliente: Cliente) : Observable<Cliente> {
+    const url = `http://127.0.0.1:8080/sistema-vendas/api/v1/clientes/${cliente.id}`;
+    return this.http.put<Cliente>(url, cliente);
+  }
+
   getClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>('http://127.0.0.1:8080/sistema-vendas/api/v1/clientes');
   }
