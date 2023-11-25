@@ -21,7 +21,7 @@ export class ClientesListComponent implements OnInit {
   }
 
   getClientes(): void {
-    this.clienteService.getClientes()
+    this.clienteService.getAll()
       .subscribe( (data: Cliente[]) => {
         this.clientes = data;
       }, 
@@ -33,6 +33,10 @@ export class ClientesListComponent implements OnInit {
 
   novoCadastro() {
     this.router.navigate(['/clientes-form']);
+  }
+
+  deleteCliente(id: number): void {
+    this.clienteService.delete(id);
   }
 
 }
