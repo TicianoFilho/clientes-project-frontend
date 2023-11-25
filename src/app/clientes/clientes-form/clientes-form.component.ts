@@ -69,7 +69,6 @@ export class ClientesFormComponent implements OnInit {
    
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
-      
       if (this.id) {
         this.clienteService.getById(this.id)
           .subscribe(clienteResponse => this.cliente = clienteResponse, 

@@ -1,47 +1,63 @@
 <h1 class="mt-4">Clientes</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Consulta</li>
+  <li class="breadcrumb-item active">Consulta</li>
 </ol>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <button class="btn btn-primary" (click)="novoCadastro()"> <i class="fa fa-plus"></i> Novo</button>
-        </div>
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-primary" (click)="novoCadastro()"> <i class="fa fa-plus"></i> Novo</button>
     </div>
+  </div>
 
-    <br/>
+  <br />
 
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-condensed table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Cpf</th>
-                    <th scope="col">Data Cadastro</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let cliente of clientes">
-                    <th>{{ cliente.id }}</th>
-                    <td>{{ cliente.nome }}</td>
-                    <td>{{ cliente.cpf }}</td>
-                    <td>{{ cliente.dataCadastro }}</td>
-                    <td>
-                      
-                        <button class="btn btn-light" routerLink="/clientes-form/{{ cliente.id }}">
-                          <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button class="btn btn-light" (click)="deleteCliente(cliente.id)">
-                          <i class="fa-solid fa-trash-can"></i>
-                        </button>
-                    
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cpf</th>
+            <th scope="col">Data Cadastro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <th>{{ cliente.id }}</th>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.dataCadastro }}</td>
+            <td>
+              <button class="btn btn-light" routerLink="/clientes-form/{{ cliente.id }}">
+                <i class="fa-solid fa-pencil"></i>
+              </button>
+              <button class="btn btn-light" data-toggle="modal" data-target="#modalDelete">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+
+  <div id="modalDelete" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <h4>Confirmação</h4>
+        <div class="modal-header">
+          <h4>Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="" id="">
+        </div>
+        <div class="modal-footer">
+          botão aqui
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
