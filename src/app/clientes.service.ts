@@ -30,8 +30,8 @@ export class ClientesService {
     return this.http.get<Cliente>(`http://127.0.0.1:8080/sistema-vendas/api/v1/clientes/${id}`);
   }
 
-  delete(id: number) : Observable<void> {
-    return this.http.delete<void>(`http://127.0.0.1:8080/sistema-vendas/api/v1/clientes/${id}`);
+  delete(id: number) : Observable<any> {
+    return this.http.delete<any>(`http://127.0.0.1:8080/sistema-vendas/api/v1/clientes/${id}`);
   }
 
 }
