@@ -1,10 +1,22 @@
 <h1 class="mt-4">Clientes</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Cadastro</li>
+    <li class="breadcrumb-item active">{{ cliente.id ? 'Edição' : 'Cadastro'}}</li>
 </ol>
 <div class="container">
     <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
+
         <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="saveSuccess == true">
+                    Cliente salvo com sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let err of erros">
+                    {{ err }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="cliente.id">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Id:</label>
@@ -32,9 +44,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
-            <button type="submit" class="btn btn-success">
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-success" *ngIf="!cliente.id">
                 <i class="fa fa-save"></i> Salvar
+            </button>
+            <button type="submit" class="btn btn-warning" *ngIf="cliente.id">
+                <i class="fa-solid fa-arrows-rotate"></i> Atualizar
+            </button>
+            <button type="button" class="btn btn-info ml-2" (click)="irParaListaClientes()">
+                <i class="fa-solid fa-list"></i> Ver lista
             </button>
         </div>
     </form>
