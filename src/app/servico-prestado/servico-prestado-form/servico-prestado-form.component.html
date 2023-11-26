@@ -6,10 +6,10 @@
 <div class="container">
     <form #form="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
-            <div class="col-md12">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Cliente: </label>
-                    <select>
+                    <select class="form-control">
                         <option>Selecione...</option>
                         <option *ngFor="let cliente of clientes" [ngValue]="cliente.id">
                             {{ cliente.nome }}
