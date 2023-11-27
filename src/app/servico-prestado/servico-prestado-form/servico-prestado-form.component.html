@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Cliente: </label>
-                    <select class="form-control">
+                    <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="servicoPrestado.clienteId">
                         <option>Selecione...</option>
                         <option *ngFor="let cliente of clientes" [ngValue]="cliente.id">
                             {{ cliente.nome }}
@@ -18,5 +18,6 @@
                 </div>
             </div>
         </div>
+        <button type="submit">Manda</button>
     </form>
 </div>
