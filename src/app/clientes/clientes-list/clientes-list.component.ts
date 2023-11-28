@@ -34,6 +34,10 @@ export class ClientesListComponent implements OnInit {
     );
   }
 
+  getClienteAtual(cliente: Cliente) {
+    this.clienteService.clienteAtual = cliente;
+  }
+
   novoCadastro() {
     this.router.navigate(['/clientes-form']);
   }

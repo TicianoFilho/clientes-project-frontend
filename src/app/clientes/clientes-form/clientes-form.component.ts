@@ -24,7 +24,10 @@ export class ClientesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getClienteById();
+    //this.getClienteById();
+    if (this.clienteService.clienteAtual) {
+      this.cliente = this.clienteService.clienteAtual;
+    }
   }
     
 
