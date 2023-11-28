@@ -32,11 +32,11 @@ export class ClientesFormComponent implements OnInit {
     
 
   clicar() {
-    console.log(this.cliente);
+    console.log(JSON.stringify(this.cliente));
   }
 
   onSubmit() {
-    if (this.id) {
+    if (this.cliente.id) {
       this.atualizar();
     } else {
       this.salvar();
