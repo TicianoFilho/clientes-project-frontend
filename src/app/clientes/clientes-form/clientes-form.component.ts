@@ -54,7 +54,6 @@ export class ClientesFormComponent implements OnInit {
 
   
   salvar() {
-    debugger
     this.clienteService.salvar(this.cliente)
     .subscribe( response => { 
       this.saveSuccess = true;
