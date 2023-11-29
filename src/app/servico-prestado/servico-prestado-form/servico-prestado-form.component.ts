@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ClientesService } from 'src/app/clientes/clientes.service';
 import { Cliente } from 'src/app/clientes/Clientes';
 import { ServicoPrestado } from '../ServicoPrestado';
+import { ServicosPrestadosService } from '../servicos-prestados.service';
+import { Observable } from 'rxjs';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-servico-prestado-form',
@@ -12,10 +15,12 @@ export class ServicoPrestadoFormComponent implements OnInit {
 
   clientes: Cliente[];
   servicoPrestado: ServicoPrestado;
+  saveSuccess: boolean = false;
 
-  constructor(private clienteService: ClientesService) {
-    this.clienteService = clienteService;
-    this.servicoPrestado = new ServicoPrestado();
+  constructor(
+    private clienteService: ClientesService,
+    private servicoPrestadoService: ServicosPrestadosService) {
+      this.servicoPrestado = new ServicoPrestado();
   }
 
   ngOnInit(): void {
@@ -23,7 +28,17 @@ export class ServicoPrestadoFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.servicoPrestado);
+   this.salvar();
+  }
+
+  
+  salvar() {
+    this.servicoPrestadoService
+      .salvar(this.servicoPrestado)
+      .subscribe(response => {
+        console.log(response);
+        this.saveSuccess = true;
+      });
   }
 
   LoadClientes() {

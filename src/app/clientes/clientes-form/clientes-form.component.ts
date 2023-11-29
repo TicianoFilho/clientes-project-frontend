@@ -52,7 +52,9 @@ export class ClientesFormComponent implements OnInit {
       }, error => ['Erro ao atualizar o cliente!']);
   }
 
+  
   salvar() {
+    debugger
     this.clienteService.salvar(this.cliente)
     .subscribe( response => { 
       this.saveSuccess = true;
