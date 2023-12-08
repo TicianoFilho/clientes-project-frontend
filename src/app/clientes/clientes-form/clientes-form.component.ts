@@ -24,8 +24,6 @@ export class ClientesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("clienteAtual: " + this.clienteService.clienteAtual);
-    console.log("novoCadastro: " + this.clienteService.novoCadastro);
     if (this.clienteService.clienteAtual && !this.clienteService.novoCadastro) {
       this.cliente = this.clienteService.clienteAtual;
     }
