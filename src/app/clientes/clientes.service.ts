@@ -11,6 +11,7 @@ import { environment } from '../../environments/environment';
 export class ClientesService {
 
   baseUrl = environment.baseApiURL + environment.contextPath + '/api/v1/clientes';
+  novoCadastro: boolean = false;
 
   constructor(private http: HttpClient) { 
 

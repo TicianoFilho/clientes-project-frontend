@@ -24,8 +24,9 @@ export class ClientesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.getClienteById();
-    if (this.clienteService.clienteAtual) {
+    console.log("clienteAtual: " + this.clienteService.clienteAtual);
+    console.log("novoCadastro: " + this.clienteService.novoCadastro);
+    if (this.clienteService.clienteAtual && !this.clienteService.novoCadastro) {
       this.cliente = this.clienteService.clienteAtual;
     }
   }
@@ -41,6 +42,7 @@ export class ClientesFormComponent implements OnInit {
     } else {
       this.salvar();
     }  
+    this.clienteService.novoCadastro = false;
   }
 
   atualizar() {
@@ -66,6 +68,7 @@ export class ClientesFormComponent implements OnInit {
   }
 
   irParaListaClientes() {
+    this.clienteService.novoCadastro = false;
     this.router.navigate(['/clientes-list']);
   }
 
