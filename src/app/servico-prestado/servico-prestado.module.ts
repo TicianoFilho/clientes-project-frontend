@@ -6,6 +6,7 @@ import { ServicoPrestadoFormComponent } from './servico-prestado-form/servico-pr
 import { ServicoPrestadoListComponent } from './servico-prestado-research-list/servico-prestado-list.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ServicoPrestadoResearch } from './ServicoPrestado';
 
 
 @NgModule({

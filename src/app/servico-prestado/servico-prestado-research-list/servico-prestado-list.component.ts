@@ -28,10 +28,10 @@ export class ServicoPrestadoListComponent {
     ];
 
     erros: string[] | null;
+    servicoPrestadoResearch: ServicoPrestadoResearch[];
     
   
-    constructor(private servicoPrestadoService: ServicosPrestadosService,
-      private servicoPrestadoResearch: ServicoPrestadoResearch) {
+    constructor(private servicoPrestadoService: ServicosPrestadosService) {
       this.objetoPesquisa = new PesquisaServicoPrestado();
     }
 

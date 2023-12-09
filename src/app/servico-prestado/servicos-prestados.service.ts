@@ -19,14 +19,14 @@ export class ServicosPrestadosService {
     return this.http.post<ServicoPrestado>(this.baseURL,servicoPrestado);
   }
 
-  pesquisar(theNomeCliente: string, theNumeroMes: number) : Observable<ServicoPrestadoResearch> {
+  pesquisar(theNomeCliente: string, theNumeroMes: number) : Observable<ServicoPrestadoResearch[]> {
     const nomeCliente = theNomeCliente ? theNomeCliente : "";
     const numeroMes = theNumeroMes ? theNumeroMes : 0;
 
     const params = new HttpParams().set("nomeCliente", nomeCliente).set("numeroMes", numeroMes);
     const url = this.baseURL + '?' + params;
 
-    return this.http.get<ServicoPrestadoResearch>(url);
+    return this.http.get<ServicoPrestadoResearch[]>(url);
   }
 
 }
