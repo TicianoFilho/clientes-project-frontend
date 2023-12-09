@@ -29,7 +29,7 @@ export class ServicoPrestadoListComponent {
 
     erros: string[] | null;
     servicoPrestadoResearch: ServicoPrestadoResearch[];
-    
+    noDataFoundMessage: string | null = '';
   
     constructor(private servicoPrestadoService: ServicosPrestadosService) {
       this.objetoPesquisa = new PesquisaServicoPrestado();
@@ -41,7 +41,14 @@ export class ServicoPrestadoListComponent {
 
     pesquisar() {
       this.servicoPrestadoService.pesquisar(this.objetoPesquisa.nomeCliente, this.objetoPesquisa.numeroMes)
-       .subscribe(response => {this.servicoPrestadoResearch = response}, err => ['Erro na busca.']);
+       .subscribe(response => {
+        this.servicoPrestadoResearch = response;
+        this.noDataFoundMessage = this.returnedDataExists(this.servicoPrestadoResearch);
+      }, err => ['Erro na busca.']);
+    }
+
+    private returnedDataExists(data: ServicoPrestadoResearch[]) : string | null{
+      return (data.length <= 0) ? 'Nenhum registro encontrado!' : null;
     }
 
 }

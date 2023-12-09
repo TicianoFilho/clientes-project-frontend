@@ -26,6 +26,14 @@
     </form>
     
     <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="alert alert-warning" role="alert" *ngIf="noDataFoundMessage">
+                {{ noDataFoundMessage }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
         <table class="table table-hover">
             <thead>
               <tr>
