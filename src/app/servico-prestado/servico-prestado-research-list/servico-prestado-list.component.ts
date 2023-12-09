@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { PesquisaServicoPrestado } from '../PesquisaServicoPrestado';
+import { ServicosPrestadosService } from '../servicos-prestados.service';
+import { ServicoPrestadoResearch } from '../ServicoPrestado';
 
 @Component({
   selector: 'app-servico-prestado-list',
@@ -23,14 +25,23 @@ export class ServicoPrestadoListComponent {
       {"nome": "outubro", "numero": 10},
       {"nome": "novembro", "numero": 11},
       {"nome": "dezembro", "numero": 12},
-    ]
+    ];
+
+    erros: string[] | null;
+    
   
-    constructor() {
+    constructor(private servicoPrestadoService: ServicosPrestadosService,
+      private servicoPrestadoResearch: ServicoPrestadoResearch) {
       this.objetoPesquisa = new PesquisaServicoPrestado();
     }
 
+    onSubmit() {
+      this.pesquisar();
+    }
+
     pesquisar() {
-      console.log(this.objetoPesquisa);
+      this.servicoPrestadoService.pesquisar(this.objetoPesquisa.nomeCliente, this.objetoPesquisa.numeroMes)
+       .subscribe(response => {this.servicoPrestadoResearch = response}, err => ['Erro na busca.']);
     }
 
 }

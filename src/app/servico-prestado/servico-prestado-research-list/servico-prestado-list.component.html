@@ -4,7 +4,7 @@
 </ol>
 
 <div class="container">
-    <form>
+    <form #servicoPrestadoSearchForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-md-6">
                 <label for="inputNome">Nome Cliente</label>
@@ -17,8 +17,10 @@
                     <option *ngFor="let mes of meses" [ngValue]="mes.numero">{{ mes.nome }}</option>
                 </select>
             </div> 
-            <div class="col-md-6 mt-2">
-                <button type="button" class="btn btn-primary col-md-4" (click)="pesquisar()"><i class="fas fa-search"> Pesquisar</i></button> 
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"> Pesquisar</i></button> 
             </div> 
         </div>
     </form>
