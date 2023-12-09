@@ -4,7 +4,7 @@
 </ol>
 
 <div class="container">
-    <form #servicoPrestadoSearchForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #servicoPrestadoSearchForm="ngForm">
         <div class="row">
             <div class="col-md-6">
                 <label for="inputNome">Nome Cliente</label>
@@ -19,8 +19,9 @@
             </div> 
         </div>
         <div class="row mt-4">
-            <div class="col-md-3">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-search"> Pesquisar</i></button> 
+            <div class="col-md-4 ">
+                <button type="button" class="btn btn-primary" (click)="onSubmit()"><i class="fa fa-search"></i> Pesquisar</button> 
+                <button type="button" class="btn btn-success ml-2" routerLink="/servicos-prestados-form"><i class="fa-solid fa-floppy-disk"></i> Novo</button> 
             </div> 
         </div>
     </form>
