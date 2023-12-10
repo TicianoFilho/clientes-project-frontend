@@ -12,7 +12,7 @@ export class LoginComponent {
   readonly invalidLogin = 'Login ou senha inválidos';
 
   onSubmit() {
-    console.log(`Test`);
+    console.log(`login: ${this.username} e senha ${this.password}`);
   }
 
 }
