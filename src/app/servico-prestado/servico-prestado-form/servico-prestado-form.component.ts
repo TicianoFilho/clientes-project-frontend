@@ -3,8 +3,6 @@ import { ClientesService } from 'src/app/clientes/clientes.service';
 import { Cliente } from 'src/app/clientes/Clientes';
 import { ServicoPrestado } from '../ServicoPrestado';
 import { ServicosPrestadosService } from '../servicos-prestados.service';
-import { Observable } from 'rxjs';
-import { error } from 'jquery';
 
 @Component({
   selector: 'app-servico-prestado-form',
