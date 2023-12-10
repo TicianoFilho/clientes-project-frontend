@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label>Cliente: </label>
                     <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="servicoPrestado.clienteId">
-                        <option>Selecione...</option>
+                        <option>Selecione...</option>   
                         <option *ngFor="let cliente of clientes" [ngValue]="cliente.id">
                             {{ cliente.nome }}
                         </option>
