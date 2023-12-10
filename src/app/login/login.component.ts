@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  username: string;
+  password: string;
+  readonly invalidLogin = 'Login ou senha inválidos';
+
+  onSubmit() {
+    console.log(`Test`);
+  }
+
 }

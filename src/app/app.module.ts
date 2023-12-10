@@ -11,6 +11,7 @@ import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.modul
 import { ServicosPrestadosService } from './servico-prestado/servicos-prestados.service';
 import { ServicoPrestadoResearch } from './servico-prestado/ServicoPrestado';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoginComponent } from './login/login.component';
     TemplateModule,
     ClientesModule,
     ServicoPrestadoModule,
+    FormsModule,
   ],
   providers: [
     ClientesService,
