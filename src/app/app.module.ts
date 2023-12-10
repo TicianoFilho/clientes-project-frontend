@@ -10,10 +10,12 @@ import { HttpClientModule } from '@angular/common/http'
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
 import { ServicosPrestadosService } from './servico-prestado/servicos-prestados.service';
 import { ServicoPrestadoResearch } from './servico-prestado/ServicoPrestado';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
