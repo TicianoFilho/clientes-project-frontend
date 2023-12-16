@@ -40,7 +40,7 @@ export class ClientesListComponent implements OnInit {
 
   novoCadastro() {
     this.clienteService.novoCadastro = true;
-    this.router.navigate(['/clientes-form']);
+    this.router.navigate(['/clientes/form']);
   }
 
   deleteCliente(id: number): void {

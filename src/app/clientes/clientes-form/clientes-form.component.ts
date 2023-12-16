@@ -67,7 +67,7 @@ export class ClientesFormComponent implements OnInit {
 
   irParaListaClientes() {
     this.clienteService.novoCadastro = false;
-    this.router.navigate(['/clientes-list']);
+    this.router.navigate(['/clientes/list']);
   }
 
   getClienteById() {
