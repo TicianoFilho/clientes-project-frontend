@@ -5,9 +5,10 @@ import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', component: LayoutComponent},
+  { path: '', component: LayoutComponent, children: [
+    { path: 'home', component: HomeComponent },
+  ]},
 ];
 
 @NgModule({
