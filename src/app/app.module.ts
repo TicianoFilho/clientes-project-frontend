@@ -12,11 +12,13 @@ import { ServicosPrestadosService } from './servico-prestado/servicos-prestados.
 import { ServicoPrestadoResearch } from './servico-prestado/ServicoPrestado';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
