@@ -27,4 +27,8 @@ export class LoginComponent {
     this.cadastrando = true;
   }
 
+  cancelaCadastro() {
+    this.cadastrando = false;
+  }
+
 }
