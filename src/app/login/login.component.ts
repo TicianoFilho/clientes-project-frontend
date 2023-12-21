@@ -11,12 +11,11 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
   usuario: Usuario;
   readonly invalidLogin = 'Login ou senha inválidos';
-  loginError: boolean;
   cadastroSucesso: string | null;
   cadastrando: boolean;
+  errors: string[];
 
   constructor(private router: Router, private authService: AuthService) {
-    this.loginError = false;
     this.cadastrando = false;
     this.usuario = new Usuario();
   }
@@ -32,6 +31,9 @@ export class LoginComponent {
 
   cancelaCadastro() {
     this.cadastrando = false;
+    this.usuario.username = "";
+    this.usuario.password= "";
+    this.errors = [];
   }
 
   salvar() {
@@ -41,10 +43,9 @@ export class LoginComponent {
       response => {
         this.usuario = response;
         this.cadastroSucesso = 'Cadastro realizado com sucesso! Efetue o login.';
-        this.loginError = false;
-      }, error => {
-        this.loginError = true;
+      }, errorResponse => {      
         this.cadastroSucesso = null;
+        this.errors = errorResponse.error.erros;
       });
   }
 

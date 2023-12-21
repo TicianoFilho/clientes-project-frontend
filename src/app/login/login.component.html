@@ -12,8 +12,10 @@
                             </div>
 
                             <div class="card-body">
-                                <div class="alert alert-danger" *ngIf="loginError">
-                                    {{ invalidLogin }}
+                                <div class="alert alert-danger" *ngIf="errors && errors.length > 0">
+                                    <div *ngFor="let err of errors">
+                                        {{ err }}
+                                    </div>
                                 </div>
                                 <div class="alert alert-success" *ngIf="cadastroSucesso">
                                     {{ cadastroSucesso }}
