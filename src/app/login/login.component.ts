@@ -15,13 +15,23 @@ export class LoginComponent {
   cadastrando: boolean;
   errors: string[];
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, private oauthService: AuthService) {
     this.cadastrando = false;
     this.usuario = new Usuario();
   }
 
   onSubmit() {
-    this.router.navigate(["/home"]);
+    this.logar();
+  }
+
+  logar() {
+    this.oauthService.doLogin(this.usuario.username, this.usuario.password)
+      .subscribe(response => {
+        console.log(response);
+        this.router.navigate(["/home"]);
+      }, err => { 
+        this.errors = ['Não deu certo o Login!'];
+      });
   }
 
   preparaCadastro(event: Event) {
@@ -37,7 +47,7 @@ export class LoginComponent {
   }
 
   salvar() {
-    this.authService
+    this.oauthService
     .salvarUsuario(this.usuario)
     .subscribe(
       response => {
