@@ -1,0 +1,58 @@
+<h1 class="mt-4">Serviço Prestado</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Consulta</li>
+</ol>
+
+<div class="container">
+    <form #servicoPrestadoSearchForm="ngForm">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="inputNome">Nome Cliente</label>
+                <input type="text" class="form-control" name="nome" [(ngModel)]="objetoPesquisa.nomeCliente" id="inputNome">
+            </div>
+            <div class="col-md-6">
+                <label for="inputNome">Mês</label>
+                <select  class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="objetoPesquisa.numeroMes">
+                    <option value="" disabled selected>Selecione...</option>
+                    <option *ngFor="let mes of meses" [ngValue]="mes.numero">{{ mes.nome }}</option>
+                </select>
+            </div> 
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4 ">
+                <button type="button" class="btn btn-primary" (click)="onSubmit()"><i class="fa fa-search"></i> Pesquisar</button> 
+                <button type="button" class="btn btn-success ml-2" routerLink="/servicos-prestados/form"><i class="fa-solid fa-floppy-disk"></i> Novo</button> 
+            </div> 
+        </div>
+    </form>
+    
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="alert alert-warning" role="alert" *ngIf="noDataFoundMessage">
+                {{ noDataFoundMessage }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Data</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of servicoPrestadoResearch">
+                <td> {{ s.cliente.nome }}</td>
+                <td> {{ s.descricao }}</td>
+                <td> {{ s.valor }}</td>
+                <td> {{ s.dataCadastro }}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+    </div>
+</div>

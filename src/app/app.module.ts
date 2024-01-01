@@ -5,13 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
 import { ClientesModule } from './clientes/clientes.module';
-import { ClientesService } from './clientes.service';
+import { ClientesService } from './clientes/clientes.service';
 import { HttpClientModule } from '@angular/common/http'
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
+import { ServicosPrestadosService } from './servico-prestado/servicos-prestados.service';
+import { ServicoPrestadoResearch } from './servico-prestado/ServicoPrestado';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { LayoutComponent } from './layout/layout.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,9 +28,13 @@ import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.modul
     TemplateModule,
     ClientesModule,
     ServicoPrestadoModule,
+    FormsModule,
   ],
   providers: [
     ClientesService,
+    ServicosPrestadosService,
+    ServicoPrestadoResearch,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

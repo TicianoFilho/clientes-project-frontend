@@ -6,14 +6,12 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from '../home/home.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../Clientes';
 import { Observable } from 'rxjs';
-import { ClientesService } from 'src/app/clientes.service';
+import { ClientesService } from 'src/app/clientes/clientes.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,8 +34,13 @@ export class ClientesListComponent implements OnInit {
     );
   }
 
+  getClienteAtual(cliente: Cliente) {
+    this.clienteService.clienteAtual = cliente;
+  }
+
   novoCadastro() {
-    this.router.navigate(['/clientes-form']);
+    this.clienteService.novoCadastro = true;
+    this.router.navigate(['/clientes/form']);
   }
 
   deleteCliente(id: number): void {

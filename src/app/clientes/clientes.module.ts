@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms'
 import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClientesFormComponent } from './clientes-form/clientes-form.component';
 
-import { Cliente } from './Clientes';
 import { ClientesListComponent } from './clientes-list/clientes-list.component'
 
 

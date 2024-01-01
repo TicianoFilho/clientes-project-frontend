@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../Clientes';
-import { ClientesService } from '../../clientes.service';
+import { ClientesService } from '../clientes.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -24,20 +24,23 @@ export class ClientesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getClienteById();
+    if (this.clienteService.clienteAtual && !this.clienteService.novoCadastro) {
+      this.cliente = this.clienteService.clienteAtual;
+    }
   }
     
 
   clicar() {
-    console.log(this.cliente);
+    console.log(JSON.stringify(this.cliente));
   }
 
   onSubmit() {
-    if (this.id) {
+    if (this.cliente.id) {
       this.atualizar();
     } else {
       this.salvar();
     }  
+    this.clienteService.novoCadastro = false;
   }
 
   atualizar() {
@@ -49,6 +52,7 @@ export class ClientesFormComponent implements OnInit {
       }, error => ['Erro ao atualizar o cliente!']);
   }
 
+  
   salvar() {
     this.clienteService.salvar(this.cliente)
     .subscribe( response => { 
@@ -62,7 +66,8 @@ export class ClientesFormComponent implements OnInit {
   }
 
   irParaListaClientes() {
-    this.router.navigate(['/clientes-list']);
+    this.clienteService.novoCadastro = false;
+    this.router.navigate(['/clientes/list']);
   }
 
   getClienteById() {
