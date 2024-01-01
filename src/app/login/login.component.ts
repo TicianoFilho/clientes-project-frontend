@@ -27,7 +27,8 @@ export class LoginComponent {
   logar() {
     this.oauthService.doLogin(this.usuario.username, this.usuario.password)
       .subscribe(response => {
-        console.log(response);
+        const accesToken = JSON.stringify(response);
+        localStorage.setItem("access_token",accesToken);
         this.router.navigate(["/home"]);
       }, err => { 
         this.errors = ['Não deu certo o Login!'];
