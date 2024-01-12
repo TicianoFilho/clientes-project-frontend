@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from './Usuario';
 import { AuthService } from '../auth.service';
@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   usuario: Usuario;
   readonly invalidLogin = 'Login ou senha inválidos';
   cadastroSucesso: string | null;
@@ -18,6 +18,10 @@ export class LoginComponent {
   constructor(private router: Router, private oauthService: AuthService) {
     this.cadastrando = false;
     this.usuario = new Usuario();
+  }
+
+  ngOnInit(): void {
+    localStorage.clear();
   }
 
   onSubmit() {

@@ -31,12 +31,7 @@ export class ClientesService {
   }
 
   getAll(): Observable<Cliente[]> {
-
-    const accessTokenString = localStorage.getItem('access_token');
-    const tokenObject = accessTokenString != null ? JSON.parse(accessTokenString) : null;
-    const headers = { 'Authorization' : `${tokenObject.token_type} ${tokenObject.access_token}` }
-
-    return this.http.get<Cliente[]>(this.baseUrl, { headers });
+    return this.http.get<Cliente[]>(this.baseUrl);
   }
 
   getById(id: number) : Observable<Cliente> {

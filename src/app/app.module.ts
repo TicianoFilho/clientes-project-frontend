@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
 import { ClientesModule } from './clientes/clientes.module';
 import { ClientesService } from './clientes/clientes.service';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
 import { ServicosPrestadosService } from './servico-prestado/servicos-prestados.service';
 import { ServicoPrestadoResearch } from './servico-prestado/ServicoPrestado';
@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthService } from './auth.service';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,11 @@ import { AuthService } from './auth.service';
     ServicosPrestadosService,
     ServicoPrestadoResearch,
     AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })
