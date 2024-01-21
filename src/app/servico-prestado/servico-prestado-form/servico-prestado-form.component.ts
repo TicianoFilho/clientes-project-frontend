@@ -32,6 +32,7 @@ export class ServicoPrestadoFormComponent implements OnInit {
 
 
   salvar() {
+    this.servicoPrestado.valor = parseFloat(this.servicoPrestado.valor.toString().replace(',', '.'));
     this.servicoPrestadoService
       .salvar(this.servicoPrestado)
       .subscribe(response => {
