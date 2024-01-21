@@ -64,4 +64,8 @@ export class AuthService {
     return token ? this.jwtHelper.decodeToken(token).user_name : 'não informado';
   }
 
+  logout(): void {
+    localStorage.removeItem('access_token');
+  }
+
 }
