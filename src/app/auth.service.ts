@@ -59,4 +59,9 @@ export class AuthService {
     return null;
   }
 
+  obterNomeUsuarioLogado(): string {
+    const token = this.obterToken();
+    return token ? this.jwtHelper.decodeToken(token).user_name : 'não informado';
+  }
+
 }
