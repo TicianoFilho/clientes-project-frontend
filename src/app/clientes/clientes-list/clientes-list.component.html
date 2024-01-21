@@ -41,7 +41,7 @@
             <td>{{ cliente.cpf }}</td>
             <td>{{ cliente.dataCadastro }}</td>
             <td>
-              <button class="btn btn-light" (click)="getClienteAtual(cliente)" routerLink="/clientes-form/{{ cliente.id }}">
+              <button class="btn btn-light" (click)="getClienteAtual(cliente)" routerLink="/clientes/form/{{ cliente.id }}">
                 <i class="fa-solid fa-pencil"></i>
               </button>
               <button class="btn btn-light" data-toggle="modal" data-target="#modalDelete"
