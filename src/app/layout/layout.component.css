@@ -1,4 +1,4 @@
-/* css para deixar o footer sempre abaixo na tela do monitor */
+/* css para deixar o footer sempre abaixo na tela do monitor - START */
 
 html, body {
     height: 100%;
@@ -25,3 +25,5 @@ html, body {
   app-footer {
     margin-top: auto;
   }
+
+  /* css para deixar o footer sempre abaixo na tela do monitor - END*/
