@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cliente } from './Clientes';
+import { Cliente, ClienteDashBoard } from './Clientes';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -42,4 +42,8 @@ export class ClientesService {
     return this.http.delete<any>(this.baseUrl + `/${id}`);
   }
 
+  totalClientes(): Observable<ClienteDashBoard> {
+    return this.http.get<ClienteDashBoard>(`${this.baseUrl}/dashboard`);
+  }
+  
 }

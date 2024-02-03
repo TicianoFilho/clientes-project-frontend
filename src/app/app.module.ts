@@ -15,12 +15,16 @@ import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthService } from './auth.service';
 import { TokenInterceptor } from './token.interceptor';
+import { ClienteDashBoard } from './clientes/Clientes';
+import { ClientesDashboardComponent } from './clientes/clientes-dashboard/clientes-dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LayoutComponent,
+
   ],
   imports: [
     BrowserModule,
