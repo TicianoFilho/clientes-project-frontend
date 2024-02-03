@@ -35,6 +35,7 @@ export class ClientesListComponent implements OnInit {
   }
 
   getClienteAtual(cliente: Cliente) {
+    console.log('chamou método getClienteAtual()');
     this.clienteService.clienteAtual = cliente;
   }
 

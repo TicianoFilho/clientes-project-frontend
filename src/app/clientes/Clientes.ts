@@ -4,3 +4,7 @@ export class Cliente {
     cpf: string;
     dataCadastro: string;
 }
+
+export class ClienteDashBoard {
+    customerTotal: number;
+}
