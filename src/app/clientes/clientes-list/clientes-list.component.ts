@@ -48,9 +48,10 @@ export class ClientesListComponent implements OnInit {
     console.log(id);
     this.clienteService.delete(id)
       .subscribe(
-        response => {this.successMessage = 'Cliente exluído com sucesso.'
-        this.ngOnInit()
-      }, error => this.errorMessage = 'Erro ao excluir o cliente'
+        response => {
+          this.successMessage = 'Cliente exluído com sucesso.'
+          this.ngOnInit()
+        }, errorResponse => this.errorMessage = errorResponse.error.erros[0]
       );
   }
 
