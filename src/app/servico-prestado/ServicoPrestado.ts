@@ -15,3 +15,7 @@ export class ServicoPrestadoResearch {
     valor: number;
     dataCadastro: string;
 }
+
+export class ServicoPrestadoDashboard {
+    servicoPrestadoTotal: number;
+}

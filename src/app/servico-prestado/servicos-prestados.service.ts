@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ServicoPrestado, ServicoPrestadoResearch } from './ServicoPrestado';
+import { ServicoPrestado, ServicoPrestadoDashboard, ServicoPrestadoResearch } from './ServicoPrestado';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
@@ -27,6 +27,10 @@ export class ServicosPrestadosService {
     const url = this.baseURL + '?' + params;
 
     return this.http.get<ServicoPrestadoResearch[]>(url);
+  }
+
+  getDashboard() : Observable<ServicoPrestadoDashboard> {
+    return this.http.get<ServicoPrestadoDashboard>(`${this.baseURL}/dashboard`);
   }
 
 }

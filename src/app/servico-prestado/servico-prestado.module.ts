@@ -12,7 +12,7 @@ import { ServicoPrestadoResearch } from './ServicoPrestado';
 @NgModule({
   declarations: [
     ServicoPrestadoFormComponent,
-    ServicoPrestadoListComponent
+    ServicoPrestadoListComponent,
   ],
   imports: [
     CommonModule,

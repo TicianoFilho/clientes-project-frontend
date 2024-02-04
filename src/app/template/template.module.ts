@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from '../home/home.component';
 import { RouterModule } from '@angular/router';
 import { ClientesDashboardComponent } from '../clientes/clientes-dashboard/clientes-dashboard.component';
+import { ServicoPrestadoDashboardComponent } from '../servico-prestado/servico-prestado-dashboard/servico-prestado-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ClientesDashboardComponent } from '../clientes/clientes-dashboard/clien
     FooterComponent,
     HomeComponent,
     ClientesDashboardComponent,
+    ServicoPrestadoDashboardComponent,
   ],
   imports: [
     CommonModule,
