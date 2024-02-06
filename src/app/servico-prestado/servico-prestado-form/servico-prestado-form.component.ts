@@ -35,13 +35,13 @@ export class ServicoPrestadoFormComponent implements OnInit {
     this.servicoPrestado.valor = parseFloat(this.servicoPrestado.valor.toString().replace(',', '.'));
     this.servicoPrestadoService
       .salvar(this.servicoPrestado)
-      .subscribe(response => {
+      .subscribe({next: (response) => {
         this.saveSuccess = true;
         this.errors = null;
-      },  errorResponse => {
+      }, error: (errorResponse) => {
         this.errors = errorResponse.error.erros;
         this.saveSuccess = false;
-      });
+      }});
     }
 
   LoadClientes() {
